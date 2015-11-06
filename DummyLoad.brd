@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.2.0">
+<eagle version="7.4.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -50,6 +50,8 @@
 <layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
 <layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
 <layer number="57" name="tCAD" color="7" fill="1" visible="no" active="no"/>
+<layer number="59" name="tCarbon" color="7" fill="1" visible="no" active="no"/>
+<layer number="60" name="bCarbon" color="7" fill="1" visible="no" active="no"/>
 <layer number="90" name="Modules" color="5" fill="1" visible="no" active="no"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="no" active="no"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="no" active="no"/>
@@ -75,6 +77,7 @@
 <layer number="112" name="tSilk" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="113" name="IDFDebug" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="116" name="Patch_BOT" color="9" fill="4" visible="yes" active="yes"/>
+<layer number="118" name="Rect_Pads" color="7" fill="1" visible="no" active="no"/>
 <layer number="121" name="_tsilk" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="122" name="_bsilk" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="123" name="tTestmark" color="7" fill="1" visible="yes" active="yes"/>
@@ -83,6 +86,7 @@
 <layer number="126" name="_bNames" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="127" name="_tValues" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="128" name="_bValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="129" name="Mask" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="131" name="tAdjust" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="132" name="bAdjust" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="144" name="Drill_legend" color="7" fill="1" visible="yes" active="yes"/>
@@ -125,6 +129,8 @@
 <layer number="229" name="229bmp" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="230" name="230bmp" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="231" name="231bmp" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="232" name="Eagle3D_PG2" color="7" fill="1" visible="no" active="no"/>
+<layer number="233" name="Eagle3D_PG3" color="7" fill="1" visible="no" active="no"/>
 <layer number="248" name="Housing" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="249" name="Edge" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="250" name="Descript" color="3" fill="1" visible="no" active="no"/>
@@ -324,25 +330,6 @@ grid 2.54 mm</description>
 <pad name="3" x="2.54" y="0" drill="0.8"/>
 <text x="-2.136075" y="-2.638553125" size="0.8128" layer="25" ratio="10">&gt;NAME</text>
 <text x="2.41734375" y="1.650325" size="0.8128" layer="27" ratio="10">&gt;VALUE</text>
-</package>
-<package name="CAP-POL-5-8">
-<wire x1="-1.651" y1="1.27" x2="-1.397" y2="1.27" width="0.1524" layer="21"/>
-<wire x1="-1.397" y1="1.016" x2="-1.397" y2="1.27" width="0.1524" layer="21"/>
-<wire x1="-1.397" y1="1.27" x2="-1.143" y2="1.27" width="0.1524" layer="21"/>
-<wire x1="-1.397" y1="1.27" x2="-1.397" y2="1.524" width="0.1524" layer="21"/>
-<wire x1="-1.651" y1="0" x2="-0.762" y2="0" width="0.1524" layer="21"/>
-<wire x1="-0.762" y1="0" x2="-0.762" y2="-1.27" width="0.1524" layer="21"/>
-<wire x1="-0.762" y1="-1.27" x2="-0.254" y2="-1.27" width="0.1524" layer="21"/>
-<wire x1="-0.254" y1="-1.27" x2="-0.254" y2="1.27" width="0.1524" layer="21"/>
-<wire x1="-0.254" y1="1.27" x2="-0.762" y2="1.27" width="0.1524" layer="21"/>
-<wire x1="-0.762" y1="1.27" x2="-0.762" y2="0" width="0.1524" layer="21"/>
-<wire x1="0.635" y1="0" x2="1.651" y2="0" width="0.1524" layer="21"/>
-<pad name="-" x="2.54" y="0" drill="0.9" shape="octagon"/>
-<pad name="+" x="-2.54" y="0" drill="0.9"/>
-<text x="3.683" y="2.54" size="0.8128" layer="25" ratio="10">&gt;NAME</text>
-<text x="3.683" y="-3.175" size="0.8128" layer="27" ratio="10">&gt;VALUE</text>
-<rectangle x1="0.254" y1="-1.27" x2="0.762" y2="1.27" layer="21"/>
-<circle x="0" y="0" radius="4.0005" width="0.127" layer="21"/>
 </package>
 <package name="CAP-POL-2.5-5">
 <description>Polarized capacitor, 5mm diameter, 2.54 grid</description>
@@ -612,14 +599,14 @@ Please make sure your boards conform to these design rules.</description>
 <element name="IC1" library="SaintGimp" package="DIP08" value="LM358" x="18.415" y="15.24">
 <attribute name="PROD_ID" value="IC-09172" x="18.415" y="15.24" size="1.778" layer="27" display="off"/>
 </element>
-<element name="R1" library="SaintGimp" package="AXIAL-7.5MM" value="100R" x="6.985" y="13.97"/>
+<element name="R1" library="SaintGimp" package="AXIAL-7.5MM" value="470R" x="6.985" y="13.97"/>
 <element name="R2" library="SaintGimp" package="AXIAL-7.5MM" value="1K" x="28.575" y="12.7" rot="R90"/>
 <element name="R3" library="SaintGimp" package="AXIAL-7.5MM" value="180K" x="26.035" y="12.7" rot="R90"/>
 <element name="Q1" library="SaintGimp" package="TO220BV" value="NTE2390" x="66.04" y="22.86" rot="R270"/>
 <element name="R5" library="SaintGimp" package="AXIAL-7.5MM" value="0R1" x="66.04" y="10.16" rot="R90">
 <attribute name="VALUE" value="" x="66.04" y="10.16" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="C1" library="SaintGimp" package="CAPACITOR-5MM" value="0.1uF" x="17.145" y="8.89" smashed="yes">
+<element name="C1" library="SaintGimp" package="CAPACITOR-5MM" value="22nF" x="17.145" y="8.89" smashed="yes">
 <attribute name="NAME" x="21.209" y="8.509" size="0.8128" layer="25"/>
 <attribute name="VALUE" x="15.24" y="6.604" size="0.8128" layer="27"/>
 </element>
@@ -654,7 +641,7 @@ Please make sure your boards conform to these design rules.</description>
 <attribute name="VALUE" x="15.875" y="30.6491625" size="0.8128" layer="27"/>
 </element>
 <element name="U1" library="SaintGimp" package="TO92-INLINE" value="LP2950" x="27.305" y="26.67" rot="R90"/>
-<element name="C4" library="SaintGimp" package="CAP-POL-5-8" value="100uF" x="33.655" y="27.94" smashed="yes">
+<element name="C4" library="SaintGimp" package="CAP-POL-2.5-5" value="100uF" x="33.655" y="27.94" smashed="yes">
 <attribute name="NAME" x="35.433" y="31.75" size="0.8128" layer="25" ratio="10"/>
 <attribute name="VALUE" x="37.338" y="24.765" size="0.8128" layer="27" ratio="10"/>
 </element>
@@ -680,7 +667,6 @@ Please make sure your boards conform to these design rules.</description>
 <element name="J10" library="SaintGimp" package="1X01" value="PINHD-1X1" x="5.715" y="33.02" smashed="yes">
 <attribute name="VALUE" x="4.445" y="30.6491625" size="0.8128" layer="27"/>
 </element>
-<element name="R7" library="SaintGimp" package="AXIAL-7.5MM" value="1M" x="6.985" y="16.51"/>
 <element name="SW2" library="SaintGimp" package="1X03" value="SWITCH-SPDT-OFFBRD" x="28.575" y="33.02" smashed="yes">
 <attribute name="VALUE" x="24.765" y="30.6491625" size="0.8128" layer="27"/>
 </element>
@@ -708,7 +694,6 @@ Please make sure your boards conform to these design rules.</description>
 <contactref element="PM1" pad="2"/>
 <contactref element="J8" pad="1"/>
 <contactref element="J9" pad="1"/>
-<contactref element="R7" pad="P$2"/>
 <contactref element="RV3" pad="3"/>
 <contactref element="RV3" pad="1"/>
 <contactref element="RV2" pad="3"/>
@@ -726,16 +711,31 @@ Please make sure your boards conform to these design rules.</description>
 <wire x1="62.23" y1="39.37" x2="67.31" y2="39.37" width="0" layer="19" extent="1-1"/>
 <wire x1="62.23" y1="11.43" x2="62.23" y2="39.37" width="0" layer="19" extent="1-1"/>
 <wire x1="66.04" y1="6.35" x2="62.23" y2="11.43" width="0" layer="19" extent="1-1"/>
-<wire x1="36.195" y1="27.94" x2="62.23" y2="39.37" width="0" layer="19" extent="1-1"/>
+<wire x1="34.925" y1="27.94" x2="62.23" y2="39.37" width="0" layer="19" extent="1-1"/>
+<wire x1="27.305" y1="26.67" x2="34.925" y2="27.94" width="0" layer="19" extent="1-1"/>
+<wire x1="20.955" y1="24.892" x2="27.305" y2="26.67" width="0" layer="19" extent="1-1"/>
+<wire x1="19.685" y1="21.59" x2="20.955" y2="24.892" width="0" layer="19" extent="1-1"/>
+<wire x1="18.415" y1="27.432" x2="20.955" y2="24.892" width="0" layer="19" extent="1-1"/>
+<wire x1="19.685" y1="33.02" x2="18.415" y2="27.432" width="0" layer="19" extent="1-1"/>
+<wire x1="22.225" y1="33.02" x2="19.685" y2="33.02" width="0" layer="19" extent="1-1"/>
+<wire x1="13.335" y1="33.02" x2="19.685" y2="33.02" width="0" layer="19" extent="1-1"/>
+<wire x1="8.255" y1="33.02" x2="13.335" y2="33.02" width="0" layer="19" extent="1-1"/>
+<wire x1="6.985" y1="27.432" x2="8.255" y2="33.02" width="0" layer="19" extent="1-1"/>
+<wire x1="9.525" y1="24.892" x2="6.985" y2="27.432" width="0" layer="19" extent="1-1"/>
+<wire x1="26.035" y1="19.05" x2="19.685" y2="21.59" width="0" layer="19" extent="1-1"/>
+<wire x1="22.225" y1="11.43" x2="26.035" y2="19.05" width="0" layer="19" extent="1-1"/>
+<wire x1="26.035" y1="5.08" x2="22.225" y2="11.43" width="0" layer="19" extent="1-1"/>
+<wire x1="31.115" y1="10.16" x2="26.035" y2="5.08" width="0" layer="19" extent="1-1"/>
+<wire x1="33.655" y1="8.89" x2="31.115" y2="10.16" width="0" layer="19" extent="1-1"/>
+<wire x1="10.795" y1="5.08" x2="22.225" y2="11.43" width="0" layer="19" extent="1-1"/>
+<wire x1="3.175" y1="8.89" x2="10.795" y2="5.08" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="GATE">
 <contactref element="Q1" pad="P1"/>
 <contactref element="R1" pad="P$1"/>
 <contactref element="J3" pad="1"/>
-<contactref element="R7" pad="P$1"/>
-<wire x1="3.2766" y1="16.51" x2="3.2766" y2="14.0716" width="0.254" layer="1"/>
+<wire x1="3.2766" y1="16.51" x2="3.2766" y2="14.0716" width="0" layer="19" extent="1-16"/>
 <wire x1="3.2766" y1="14.0716" x2="3.175" y2="13.97" width="0.254" layer="1"/>
-<wire x1="3.2766" y1="16.51" x2="3.175" y2="16.51" width="0.254" layer="1"/>
 <wire x1="4.445" y1="6.35" x2="4.445" y2="12.7" width="0.254" layer="1"/>
 <wire x1="4.445" y1="12.7" x2="3.175" y2="13.97" width="0.254" layer="1"/>
 <wire x1="5.715" y1="5.08" x2="4.445" y2="6.35" width="0.254" layer="1"/>
@@ -831,9 +831,9 @@ Please make sure your boards conform to these design rules.</description>
 <contactref element="U1" pad="3"/>
 <contactref element="C4" pad="+"/>
 <contactref element="SW2" pad="3"/>
-<wire x1="31.115" y1="33.02" x2="31.115" y2="27.94" width="0.254" layer="1"/>
+<wire x1="31.115" y1="33.02" x2="32.385" y2="27.94" width="0.254" layer="1"/>
 <wire x1="27.305" y1="29.21" x2="28.575" y2="27.94" width="0.254" layer="1"/>
-<wire x1="28.575" y1="27.94" x2="31.115" y2="27.94" width="0.254" layer="1"/>
+<wire x1="28.575" y1="27.94" x2="32.385" y2="27.94" width="0.254" layer="1"/>
 </signal>
 <signal name="METER">
 <contactref element="PM1" pad="3"/>
